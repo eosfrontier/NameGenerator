@@ -16,7 +16,7 @@ export class InputSelectorComponent implements OnInit {
   factionNameList:any;
   
   inputForm = new FormGroup({
-    quantity: new FormControl(1),
+    quantity: new FormControl(24),
     faction: new FormControl('Select Faction')
   });
   

@@ -13,6 +13,7 @@ export class RandomNameSelectorService {
   factionNameList:any;
   nameData: BehaviorSubject<any> = new BehaviorSubject(null);
   nameArray = [];
+  quantity:number;
 
   constructor(private fengApiService: FengApiService) { }
   
@@ -38,7 +39,9 @@ export class RandomNameSelectorService {
   
   private exportToArray(formInput): void {
     this.nameArray = [];
-    for (let loopCounter:number = 0; loopCounter < formInput.quantity; loopCounter++ ) {
+    if (formInput.quantity >= 50) {this.quantity = 50;}
+    else {this.quantity = formInput.quantity;}
+    for (let loopCounter:number = 0; loopCounter < this.quantity; loopCounter++ ) {
       let pushToArray = {
         factionName:this.sanitizedFactionName,
         factionImageTop:this.factionImageTopPath,
